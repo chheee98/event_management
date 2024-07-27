@@ -1,0 +1,504 @@
+{
+	"info": {
+		"_postman_id": "21b2280e-4b7a-4f1a-b7cb-94678b2b415b",
+		"name": "django",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "7417379"
+	},
+	"item": [
+		{
+			"name": "event",
+			"item": [
+				{
+					"name": "list",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{accessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/event",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"event"
+							],
+							"query": [
+								{
+									"key": "title",
+									"value": "Tech Conference 2024",
+									"disabled": true
+								},
+								{
+									"key": "event_date",
+									"value": "2024-09-10T14:00:00Z",
+									"disabled": true
+								},
+								{
+									"key": "location",
+									"value": "Culinary School, Boston, MA",
+									"disabled": true
+								},
+								{
+									"key": "search",
+									"value": "rt Studio, Downtown, N",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "retrieve",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{accessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/event/2",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"event",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{accessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "// {\n//     \"title\": \"Tech Conference 2024\",\n//     \"description\": \"A conference on the latest trends in technology, featuring keynote speakers from leading tech companies.\",\n//     \"event_date\": \"2024-08-15T09:00:00Z\",\n//     \"location\": \"Tech Hall, Silicon Valley, CA\",\n//     \"capacity\": 300\n// }\n\n\n// {\n//     \"title\": \"Art Workshop: Abstract Painting\",\n//     \"description\": \"An interactive workshop where participants learn the techniques of abstract painting from a renowned artist.\",\n//     \"event_date\": \"2024-09-10T14:00:00Z\",\n//     \"location\": \"Art Studio, Downtown, NY\",\n//     \"capacity\": 50\n// }\n\n\n// {\n//     \"title\": \"Music Festival: Summer Beats\",\n//     \"description\": \"A summer music festival featuring performances by popular bands and solo artists across various genres.\",\n//     \"event_date\": \"2024-07-20T12:00:00Z\",\n//     \"location\": \"City Park, Los Angeles, CA\",\n//     \"capacity\": 10000,\n//     \"organizer\": 3\n// }\n\n\n// {\n//     \"title\": \"Cooking Class: Italian Cuisine\",\n//     \"description\": \"A hands-on cooking class focusing on traditional Italian dishes, including pasta, pizza, and desserts.\",\n//     \"event_date\": \"2024-10-05T18:00:00Z\",\n//     \"location\": \"Culinary School, Boston, MA\",\n//     \"capacity\": 20\n// }\n\n\n{\n    \"title\": \"Charity Gala Dinner\",\n    \"description\": \"A formal dinner event to raise funds for local charities, including a silent auction and live entertainment.\",\n    \"event_date\": \"2024-11-25T19:00:00Z\",\n    \"location\": \"Grand Ballroom, Chicago, IL\",\n    \"capacity\": 200\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/event",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"event"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{accessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Charity Gala Dinner\",\n    \"description\": \"A formal dinner event to raise funds for local charities, including a silent auction and live entertainment.\",\n    \"event_date\": \"2024-11-25T19:00:00Z\",\n    \"location\": \"Grand Ballroom, Chicago, IL\",\n    \"capacity\": 333,\n    \"organizer\": 2\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/event/5",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"event",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{accessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/event/7",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"event",
+								"7"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "register event",
+			"item": [
+				{
+					"name": "event register",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{accessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"guest\": 7,\n    \"event\": 2\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/event_registeration",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"event_registeration"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							" var jsonData = pm.response.json();",
+							"",
+							"// Store tokens in collection variables",
+							"pm.collectionVariables.set(\"refreshToken\", jsonData.refresh);",
+							"pm.collectionVariables.set(\"accessToken\", jsonData.access);",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "// {\n//     \"username\": \"admin\",\n//     \"password\": \"admin\"\n// }\n\n{\n    \"username\": \"organizer\",\n    \"password\": \"organizer\"\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/api/login",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "refresh token",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							" var jsonData = pm.response.json();",
+							"",
+							"// Store tokens in collection variables",
+							"pm.collectionVariables.set(\"refreshToken\", jsonData.refresh);",
+							"pm.collectionVariables.set(\"accessToken\", jsonData.access);",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"refresh\": \"{{refreshToken}}\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/api/refresh_token",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"refresh_token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "logout",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{accessToken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"refresh\": \"{{refreshToken}}\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/api/logout",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"logout"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "register",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{accessToken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"guest__2\",\n    \"password\": \"organizer\",\n    \"is_organizer\": false\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/api/register",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "list user",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{accessToken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"guest__4\",\n    \"password\": \"organizer\",\n    \"is_organizer\": false\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/api/user",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"user"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "url",
+			"value": "localhost:8000",
+			"type": "string"
+		},
+		{
+			"key": "accessToken",
+			"value": "not access token"
+		},
+		{
+			"key": "refreshToken",
+			"value": "not refresh token",
+			"type": "string"
+		}
+	]
+}
