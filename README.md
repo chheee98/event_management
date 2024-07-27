@@ -30,23 +30,23 @@
 
 ## Setup
 
-1. Clone the repository:
+1. **Clone the repository**
 
-   git clone https://github.com/chheee98/event_management.git
-   cd event_management
+   - git clone https://github.com/chheee98/event_management.git
+   - cd event_management
 
-2. Create and activate a virtual environment
-   python3 -m venv .venv
-   source env/bin/activate
+2. **Create and activate a virtual environment**
+   - python3 -m venv .venv
+   - source .venv/bin/activate
 
-3. Install dependencies
-   pip install -r requirements.txt
+3. **Install dependencies**
+   - pip install -r requirements.txt
 
-4. Apply migrations:
-   python manage.py migrate
+4. **Apply migrations**
+   - python manage.py migrate
 
-5. Create a superuser
-   python manage.py createsuperuser
+5. **Create a superuser**
+   - python manage.py createsuperuser
 
-6. Run the development server
-   python manage.py runserver
+6. **Run the development server**
+   - python manage.py runserver
