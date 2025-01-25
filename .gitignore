@@ -19,6 +19,7 @@ media
 .venv
 venv
 .vscode/
+.env
 
 # macOS
 .DS_Store
