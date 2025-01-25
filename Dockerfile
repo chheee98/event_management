@@ -14,8 +14,15 @@ COPY . /event_management_api
 COPY requirements.txt /event_management_api/requirements.txt
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Set a default SECRET_KEY for the build process
+# Set a tmp environment variable for the build process
 ENV SECRET_KEY="temporary_secret_key"
+ENV DEBUG=False
+ENV ALLOWED_HOSTS=*
+ENV POSTGRES_SERVER=db_server
+ENV POSTGRES_PORT=''
+ENV POSTGRES_USER=db_user
+ENV POSTGRES_PASSWORD=db_password
+ENV POSTGRES_DB=db_name
 
 # Collect static files
 RUN python manage.py collectstatic --noinput
