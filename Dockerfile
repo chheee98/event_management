@@ -14,6 +14,9 @@ COPY . /event_management_api
 COPY requirements.txt /event_management_api/requirements.txt
 RUN pip install --no-cache-dir -r requirements.txt
 
+# Set a default SECRET_KEY for the build process
+ENV SECRET_KEY="temporary_secret_key"
+
 # Collect static files
 RUN python manage.py collectstatic --noinput
 
