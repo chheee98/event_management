@@ -2,8 +2,7 @@
 FROM python:3.10-slim
 
 # Install required system packages
-RUN apt-get update && apt-get install -y nginx \
-    && apt-get clean && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get install -y nginx libpq-dev && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Set the working directory
 WORKDIR /event_management_api
@@ -12,6 +11,7 @@ WORKDIR /event_management_api
 COPY . /event_management_api
 
 # Install Python dependencies
+COPY requirements.txt /event_management_api/requirements.txt
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Collect static files
@@ -26,10 +26,6 @@ RUN ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/
 
 # Expose ports
 EXPOSE 80
-
-# Switch to a non-root user (optional but recommended for Gunicorn)
-RUN useradd -m django_user
-USER django_user
 
 # Start NGINX and Gunicorn
 CMD service nginx start && gunicorn configs.wsgi:application --bind 0.0.0.0:8000 --workers=3
