@@ -25,7 +25,7 @@ class IsOrganizerUser(BasePermission):
 
 class EventView(viewsets.ModelViewSet):
     model = Event
-    queryset = Event.objects.all()
+    queryset = Event.objects.all().order_by('-event_date')
     serializer_class = EventSerializer
     filter_backends = DEFAULT_FILTER_BACKEND + [filters.SearchFilter]
     filterset_fields = ["title", "event_date", "location"]
