@@ -168,9 +168,9 @@ REST_FRAMEWORK = {
 
 # Simple Jwt
 SIMPLE_JWT = {
-    "ACCESS_TOKEN_LIFETIME": timedelta(hours=1),
-    "REFRESH_TOKEN_LIFETIME": timedelta(days=1),
-    "ROTATE_REFRESH_TOKENS": True,
+    "ACCESS_TOKEN_LIFETIME": timedelta(seconds=env.int("ACCESS_TOKEN_LIFETIME")),
+    "REFRESH_TOKEN_LIFETIME": timedelta(seconds=env.int("REFRESH_TOKEN_LIFETIME")),
+    "ROTATE_REFRESH_TOKENS": env.bool("ROTATE_REFRESH_TOKENS"),
 }
 
 APPEND_SLASH = False
