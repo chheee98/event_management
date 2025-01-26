@@ -13,7 +13,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 from pathlib import Path
 from datetime import timedelta
 import os
-
+from corsheaders.defaults import default_headers
 from configs.env import BASE_DIR, APPS_DIR, env
 
 env.read_env(os.path.join(BASE_DIR, ".env"))
@@ -32,6 +32,9 @@ DEBUG = env.bool("DEBUG")
 
 ALLOWED_HOSTS = env.list("ALLOWED_HOSTS")
 
+CORS_ALLOWED_ORIGINS = env.list("CORS_ALLOWED_ORIGINS")
+CORS_ALLOW_ALL_ORIGINS = env.bool("CORS_ALLOW_ALL_ORIGINS")
+
 # Application definition
 
 DJANGO_APPS = [
@@ -48,6 +51,7 @@ THIRD_PARTY_APPS = [
     "django_filters",
     "rest_framework_simplejwt",
     "rest_framework_simplejwt.token_blacklist",
+    "corsheaders",
 ]
 
 LOCAL_APPS = [
@@ -61,6 +65,7 @@ INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
+    "corsheaders.middleware.CorsMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
@@ -169,3 +174,9 @@ SIMPLE_JWT = {
 }
 
 APPEND_SLASH = False
+
+
+# Add specific headers to the CORS_ALLOW_HEADERS setting.
+CORS_ALLOW_HEADERS = list(default_headers) + [
+    #add more custom headers here..
+]
